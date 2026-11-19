@@ -361,12 +361,6 @@ export default {
         where.id = id;
       }
 
-      // Add the status and locale filters if they are provided
-      const publishedAt = getPublishedAtClause(status, targetUid);
-      if (!isEmpty(publishedAt)) {
-        where[`${alias}.published_at`] = publishedAt;
-      }
-
       // If target has localization we need to filter by locale
       if (isTargetLocalized && locale) {
         where[`${alias}.locale`] = locale;
